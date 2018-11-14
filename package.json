@@ -1,0 +1,15 @@
+{
+  "name": "Vision",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vision",
+  "scripts": {
+    "start:client": "yarn workspace client run start",
+    "start:server": "yarn workspace server run start"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "author": "Jonnie Kim",
+  "license": "ISC"
+}
