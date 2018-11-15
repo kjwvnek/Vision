@@ -1,0 +1,6 @@
+.wrap {
+  background-color: #000;
+  &.is_expanded {
+    border: 1px solid #ddd;
+  }
+}

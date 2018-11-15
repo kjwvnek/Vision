@@ -30,10 +30,40 @@ const config = {
               '@babel/preset-react'
             ],
             plugins: [
-              '@babel/plugin-transform-runtime'
+              '@babel/plugin-transform-runtime',
+              [
+                'babel-plugin-react-css-modules',
+                {
+                  filetypes: {
+                    '.scss': {
+                      'syntax': 'postcss-scss'
+                    }
+                  },
+                  generateScopedName: '[path][name]__[local]__[hash:base64:5]'
+                }
+              ]
             ]
           }
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[path][name]__[local]__[hash:base64:5]',
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       }
     ]
   },
