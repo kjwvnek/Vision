@@ -1,0 +1,38 @@
+body,
+ol,ul,li,dl,dt,dd,
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0;
+  padding: 0;
+}
+
+textarea,input,button {
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.wrap {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Inconsolata', 'Nanum Gothic Coding', sans-serif;
+  line-height: 1.2;
+}

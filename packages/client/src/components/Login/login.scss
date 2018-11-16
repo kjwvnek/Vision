@@ -1,0 +1,53 @@
+@import '../../style/color.scss';
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .app-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    font-size: 40px;
+    line-height: 60px;
+    .strong {
+      color: $color-aqua-blue
+    }
+  }
+  .world-animation-container {
+    width: 500px;
+    height: 500px;
+    margin: -100px auto 0;
+  }
+  .message {
+    margin-top: -50px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222;
+  }
+  .button-login {
+    margin-top: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 2px solid #dfdfdf;
+    .icon {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      vertical-align: top;
+    }
+    .text {
+      display: inline-block;
+      font-size: 22px;
+      line-height: 30px;
+      vertical-align: top;
+      color: #333;
+    }
+  }
+}

@@ -1,9 +1,8 @@
 const http = require('http');
 const app = require('./app');
 const socket = require('./socket');
-const config = require('./config/config');
 
-const port = normalizePort(process.env.PORT || config.server.port);
+const port = normalizePort(process.env.PORT || 8000);
 const server = http.createServer(app);
 
 socket(server);

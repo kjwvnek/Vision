@@ -1,0 +1,36 @@
+@import '../../style/color';
+
+.alert {
+  width: 400px;
+  padding: 26px 50px;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+  .title {
+    display: block;
+    font-size: 28px;
+    color: #444;
+  }
+  .message {
+    margin-top: 16px;
+    font-size: 16px;
+    word-break: keep-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    color: #777;
+  }
+  .buttons {
+    margin-top: 24px;
+    .button-close {
+      display: inline-block;
+      width: 140px;
+      height: 40px;
+      border-radius: 2px;
+      border: 1px solid $color-red-500;
+      font-size: 20px;
+      line-height: 40px;
+      vertical-align: top;
+      color: $color-red-500;
+    }
+  }
+}

@@ -1,31 +1,23 @@
-import * as ACTIONS from 'Constants/ACTIONS'
+import { ACTION_TYPE as LOGIN_ACTION_TYPE } from '@actions/login'
 
 const initialState = {
-  fetching: false,
   authentication: false,
-  firstLogin: false,
   id: '',
   email: '',
   nickname: '',
-  my_channels: []
+  myChannels: []
 };
 
 function reducer(state = initialState, { type, description }) {
   switch(type) {
-    case ACTIONS.LOGIN_REQUEST:
+    case LOGIN_ACTION_TYPE.LOGIN_SUCCESS:
       return {
         ...state,
-        fetching: true
-      };
-    case ACTIONS.LOGIN_SUCCESS:
-      return {
-        ...state,
-        fetching: false,
         authentication: true,
         id: description.id,
         email: description.email,
         nickname: description.nickname,
-        my_channels: []
+        myChannels: []
       };
     default:
       return {
