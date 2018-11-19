@@ -1,0 +1,59 @@
+@import '../../../style/mixin.scss';
+@import '../../../style/color.scss';
+
+.mentee-card {
+  box-sizing: border-box;
+  width: 280px;
+  height: 240px;
+  .link {
+    display: block;
+    height: 100%;
+  }
+  .thumbnail {
+    position: relative;
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: $color-yellow-50;
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      border: 3px solid rgba(0, 0, 0, 0.7);
+      content: '';
+    }
+    .default {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: 0 auto;
+    }
+  }
+  .information {
+    margin-top: 10px;
+    height: 70px;
+    text-align: center;
+    .nickname {
+      @include ellipsis(2);
+      display: block;
+      max-height: 44px;
+      font-size: 18px;
+      line-height: 22px;
+      color: #333;
+    }
+    .email {
+      @include ellipsisOne;
+      margin-top: 5px;
+      height: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      color: $color-green-500;
+    }
+  }
+}

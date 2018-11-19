@@ -1,0 +1,100 @@
+@import '../../../style/mixin.scss';
+@import '../../../style/color.scss';
+
+.mentor-card {
+  box-sizing: border-box;
+  width: 280px;
+  height: 240px;
+  border-radius: 4px;
+  border: 2px solid $color-grey-700;
+  box-shadow: 1px 1px 2px #ccc;
+  .link {
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 14px;
+  }
+  .header {
+    @include clear;
+    .thumbnail {
+      position: relative;
+      overflow: hidden;
+      float: left;
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+      background-color: $color-yellow-50;
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: 2px solid rgba(0, 0, 0, 0.7);
+        content: '';
+      }
+      .default {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+      }
+    }
+    .header-info {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      height: 60px;
+      .nickname {
+        @include ellipsis(2);
+        max-height: 46px;
+        font-size: 18px;
+        line-height: 23px;
+        color: #222;
+      }
+    }
+  }
+  .summary {
+    @include ellipsis(3);
+    height: 52px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #555;
+  }
+  .information {
+    margin-top: 12px;
+    li {
+      height: 20px;
+      & + li {
+        margin-top: 5px;
+      }
+      &:nth-child(1) .key {
+        color: $color-red-500;
+      }
+      &:nth-child(2) .key {
+        color: $color-green-500;
+      }
+      &:nth-child(3) .key {
+        color: $color-blue-500;
+      }
+    }
+    .key {
+      float: left;
+      width: 54px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .value {
+      display: block;
+      overflow: hidden;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 20px;
+      color: #222;
+    }
+  }
+}

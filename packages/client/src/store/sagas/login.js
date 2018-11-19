@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { actionCreator as loginActionCreator, ACTION_TYPE as LOGIN_ACTION_TYPE } from '@actions/login';
 import { actionCreator as popupActionCreator } from '@actions/popup'
-import { getUserByEmail } from '@api/get'
+import { getUserById, getUserByEmail } from '@api/get'
 import { postUser } from '@api/post'
 import { googleAuth } from '@services/firebase'
 import * as SESSION_KEY from '@constants/SESSION_KEY'
@@ -30,8 +30,28 @@ function* loginAsync() {
   }
 }
 
+function* autoLoginAsync({ description }) {
+  let email, nickname;
+  let id = description.id;
+
+  try {
+    const response = yield getUserById(id);
+
+    email = response.email;
+    nickname = response.nickname;
+
+    yield put(loginActionCreator.loginSuccess(id, email, nickname))
+  } catch (e) {
+    yield put(popupActionCreator.showAlert(
+      '서버 에러!',
+      '사용자의 정보를 가져오지 못했습니다.\n다시 로그인해주시기 바랍니다.'
+    ));
+  }
+}
+
 function* loginWatcher() {
   yield takeLatest(LOGIN_ACTION_TYPE.LOGIN_REQUEST, loginAsync);
+  yield takeLatest(LOGIN_ACTION_TYPE.AUTO_LOGIN_REQUEST, autoLoginAsync);
 }
 
 function makeLoginSession(user_id) {

@@ -7,7 +7,7 @@ const works = {
       nickname: email
     });
     
-    return next = user.save().then(data => ({
+    return user.save().then(data => ({
       status: 201,
       data: data || {}
     }));

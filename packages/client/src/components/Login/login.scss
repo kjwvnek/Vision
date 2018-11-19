@@ -6,8 +6,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   .app-title {
     position: absolute;
     top: 0;
@@ -15,6 +15,7 @@
     padding: 0 20px;
     font-size: 40px;
     line-height: 60px;
+    text-shadow: #ccc 1px 1px 2px;
     .strong {
       color: $color-aqua-blue
     }

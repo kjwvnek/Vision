@@ -10,12 +10,12 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           {
-            routes.map(({ path, component }) => (
+            routes.map(({ path, render }) => (
               <Route
                 key={`route-${path}`}
                 exact
                 path={path}
-                component={component}
+                render={render}
               />
             ))
           }

@@ -1,6 +1,85 @@
+@import '../../style/color.scss';
+
 .home {
-  padding: 30px;
-  .test {
-    background-color:#000;
+  position: relative;
+  overflow: auto;
+  .app-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    font-size: 40px;
+    line-height: 60px;
+    text-shadow: #ccc 1px 1px 2px;
+    .strong {
+      color: $color-aqua-blue
+    }
+  }
+  .button-user-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 120px;
+    height: 100px;
+    border: 2px dashed #777;
+    filter: drop-shadow(1px 1px 2px #777);
+    text-align: center;
+    .icon {
+      display: block;
+      margin: 0 auto;
+    }
+    .text {
+      display: block;
+      margin: 3px auto 0;
+      font-size: 18px;
+      letter-spacing: -1px;
+      color: #222;
+    }
+    &:hover .text {
+      color: $color-cyan-900;
+    }
+  }
+  .container {
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 200px;
+    .area-search {
+    
+    }
+    .area-section {
+      .section {
+        & + .section {
+          margin-top: 60px;
+        }
+        .section-title .text {
+          display: inline-block;
+          position: relative;
+          height: 40px;
+          font-size: 24px;
+          line-height: 40px;
+          &:before {
+            position: absolute;
+            z-index: -1;
+            right: -5px;
+            bottom: 5px;
+            left: 0;
+            height: 12px;
+            background-color: #ddd;
+            content: '';
+          }
+        }
+        .flick-wrap {
+          width: 1000px;
+          height: 260px;
+          padding-top: 10px !important;
+          padding-bottom: 10px !important;
+        }
+        .flick-panel {
+          box-sizing: border-box;
+          width: 310px;
+          padding: 0 15px;
+        }
+      }
+    }
   }
 }

@@ -584,6 +584,36 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@egjs/axes@^2.5.7":
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/@egjs/axes/-/axes-2.5.8.tgz#87fddc4708338d24787f297ad912b5a4f0bb4120"
+  dependencies:
+    "@egjs/component" "^2.1.2"
+    "@egjs/hammerjs" "^2.0.12"
+
+"@egjs/component@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@egjs/component/-/component-2.1.2.tgz#c466a0a6fc6ba2d479814dcbe6ee4643c25a2e5b"
+
+"@egjs/flicking@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@egjs/flicking/-/flicking-2.4.2.tgz#f957378cf7ecc4ab650fc8ea9fe936e78e527704"
+  dependencies:
+    "@egjs/axes" "^2.5.7"
+    "@egjs/component" "^2.1.2"
+
+"@egjs/hammerjs@^2.0.12":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.13.tgz#07aa1cef7345096df34260f37761f6fa75755a91"
+  dependencies:
+    "@types/hammerjs" "^2.0.36"
+
+"@egjs/react-flicking@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@egjs/react-flicking/-/react-flicking-0.0.2.tgz#c534abba8e358382f182fd9e227bed1ebccb3ff8"
+  dependencies:
+    "@egjs/flicking" "^2.4.2"
+
 "@firebase/app-types@0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.3.2.tgz#a92dc544290e2893bd8c02a81e684dae3d8e7c85"
@@ -693,6 +723,10 @@
 "@firebase/webchannel-wrapper@0.2.11":
   version "0.2.11"
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.11.tgz#32a853fad9974cbbc9fc766ec5699a18b22ccee6"
+
+"@types/hammerjs@^2.0.36":
+  version "2.0.36"
+  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
@@ -1195,10 +1229,6 @@ body-parser@1.18.3, body-parser@^1.18.3:
     qs "6.5.2"
     raw-body "2.3.3"
     type-is "~1.6.16"
-
-bodymovin@^4.13.0:
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/bodymovin/-/bodymovin-4.13.0.tgz#06d97c0130e2334dccb33bea638136f88a74540b"
 
 bonjour@^3.5.0:
   version "3.5.0"

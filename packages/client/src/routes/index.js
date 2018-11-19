@@ -1,14 +1,20 @@
+import React from 'react'
+import UserAuth from '@components/__utils/UserAuth'
 import Home from '@components/Home'
 import Login from '@components/Login'
 
 const routes = [
   {
     path: '/',
-    component: Home
+    render: () => (
+      <UserAuth Component={Home} />
+    )
   },
   {
     path: '/login',
-    component: Login
+    render: () => (
+      <Login />
+    )
   }
 ];
 

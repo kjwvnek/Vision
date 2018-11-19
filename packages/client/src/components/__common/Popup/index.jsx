@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { actionCreator as popupActionCreator } from '@actions/popup'
 import * as POPUP_TYPE from '@constants/POPUP_TYPE'
-import Alert from '@components/Alert'
+import Alert from '@components/__common/Alert'
 
 const cx = require('classnames/bind').bind(require('./popup.scss'));
 
