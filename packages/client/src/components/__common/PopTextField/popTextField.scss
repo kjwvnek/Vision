@@ -1,0 +1,81 @@
+@import '../../../style/color';
+@import '../../../style/mixin';
+
+@keyframes fade-in-and-out {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.shaded-input {
+  position: relative;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px $color-grey-400;
+  .text-field {
+    position: relative;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 2px;
+    border: 2px solid $color-grey-700;
+    .shadow {
+      position: absolute;
+      right: 16px;
+      bottom: 100%;
+      left: 16px;
+      height: 36px;
+      font-size: 18px;
+      line-height: 36px;
+      white-space: pre;
+      .text {
+        color: transparent;
+      }
+      .popup-value {
+        position: absolute;
+        color: #777;
+        animation: fade-in-and-out 1s 1 both;
+      }
+    }
+    .field {
+      @include placeholder {
+        color: $color-grey-400;
+      }
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 18px;
+      color: #222;
+    }
+  }
+  &.to-search {
+    display: flex;
+    width: 100%;
+    .text-field {
+      flex-grow: 1;
+      flex-shrink: 1;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+    }
+    .button-search {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 0 2px 2px 0;
+      background-color: $color-grey-800;
+      .icon {
+        margin-top: 1px;
+      }
+    }
+  }
+}

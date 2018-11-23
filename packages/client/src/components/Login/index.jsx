@@ -1,9 +1,9 @@
-import React, {createRef} from 'react'
+import React, { createRef } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { actionCreator as loginActionCreator } from '@actions/login'
 import Icon from '@components/__utils/Icon'
-import '@exec/bodymovin.min.exec'
+import LottieAnimation from '@components/__utils/LottieAnimation'
 
 const cx = require('classnames/bind').bind(require('./login.scss'));
 
@@ -11,27 +11,14 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     
-    this.worldAnimationContainerRef = createRef();
     this.onClickButtonLogin = this.onClickButtonLogin.bind(this);
     this.goToNextStep = this.goToNextStep.bind(this);
   }
   
-  componentDidMount() {
-    const containerEl = this.worldAnimationContainerRef;
-    
-    window.bodymovin.loadAnimation({
-      wrapper: containerEl.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/assets/lotties/world.json'
-    });
-  }
-  
   onClickButtonLogin() {
-    const { loginWithGoogle } = this.props;
-    
-    loginWithGoogle()
+    const { dispatchLoginWithGoogle } = this.props;
+
+    dispatchLoginWithGoogle()
   }
   
   goToNextStep() {
@@ -47,7 +34,11 @@ class Login extends React.Component {
     return (
       <div className={cx('login')}>
         <h1 className={cx('app-title')}><strong className={cx('strong')}>V</strong>ision</h1>
-        <div className={cx('world-animation-container')} ref={this.worldAnimationContainerRef} />
+        <LottieAnimation
+          name="world"
+          loop={true}
+          containerClassName={cx('world-animation-container')}
+        />
         <p className={cx('message')}>당신의 멘토, 당신의 멘티는 어디에 있을까요?</p>
         <button
           type="button"
@@ -76,7 +67,7 @@ export default connect(
   },
   function mapDispatchToProps(dispatch) {
     return {
-      loginWithGoogle() {
+      dispatchLoginWithGoogle() {
         dispatch(loginActionCreator.loginRequest());
       }
     };

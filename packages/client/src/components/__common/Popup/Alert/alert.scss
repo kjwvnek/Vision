@@ -1,7 +1,8 @@
-@import '../../../style/color';
+@import '../../../../style/color';
 
 .alert {
-  width: 400px;
+  box-sizing: border-box;
+  width: 500px;
   padding: 26px 50px;
   border-radius: 10px;
   background-color: #fff;

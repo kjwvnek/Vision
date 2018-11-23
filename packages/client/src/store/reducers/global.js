@@ -6,7 +6,6 @@ const initialState = {
   fetching: false,
   isShownPopup: false,
   popupType: '',
-  renderModal: null,
   alertTitle: '',
   alertMessage: ''
 };
@@ -23,28 +22,21 @@ function reducer(state = initialState, { type, description }) {
         ...state,
         fetching: false
       };
-    case POPUP_ACTION_TYPE.SHOW_MODAL:
-      return {
-        ...state,
-        fetching: false,
-        isShownPopup: true,
-        popupType: POPUP_TYPE.MODAL,
-        renderModal: description.renderPopup
-      };
+    case POPUP_ACTION_TYPE.SHOW_POPUP:
     case POPUP_ACTION_TYPE.SHOW_ALERT:
       return {
         ...state,
         fetching: false,
         isShownPopup: true,
-        popupType: POPUP_TYPE.ALERT,
-        alertTitle: description.alertTitle,
-        alertMessage: description.alertMessage
+        popupType: description.popupType,
+        popupProps: description.popupProps
       };
     case POPUP_ACTION_TYPE.HIDE_POPUP:
       return {
         ...state,
         isShownPopup: false,
-        renderPopup: null
+        alertTitle: '',
+        alertMessage: ''
       };
     default:
       return {

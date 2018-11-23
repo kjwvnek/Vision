@@ -2,62 +2,75 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { actionCreator as popupActionCreator } from '@actions/popup'
 import * as POPUP_TYPE from '@constants/POPUP_TYPE'
-import Alert from '@components/__common/Alert'
+import Alert from '@components/__common/Popup/Alert'
+import UserInfo from '@components/__common/Popup/UserInfo'
 
 const cx = require('classnames/bind').bind(require('./popup.scss'));
 
 const renderChildren = props => {
-  const { popupType, renderModal, alertTitle, alertMessage, hidePopup } = props;
-  return (
-    <Fragment>
-      {
-        popupType === POPUP_TYPE.MODAL ? (
-          renderModal()
-        ) : popupType === POPUP_TYPE.ALERT ? (
-          <Alert onClickBtnOk={hidePopup} title={alertTitle} message={alertMessage}  />
-        ) : null
-      }
-    </Fragment>
-  )
+  const { popupType, popupProps, dispatchHidePopup } = props;
+
+  switch(popupType) {
+    case POPUP_TYPE.ALERT:
+      return (
+        <Alert
+          title={popupProps.alertTitle}
+          message={popupProps.alertMessage}
+          onClickBtnOk={dispatchHidePopup}
+        />
+      );
+    case POPUP_TYPE.USER_INFO:
+      return (
+        <UserInfo {...popupProps} />
+      );
+    default:
+      return null;
+  }
 };
 
-const Dimmed = props => {
-  const { isShown, hidePopup } = props;
-  return (
-    <Fragment>
-      {
-        isShown && (
-          <div className={cx('popup')}>
+class Popup extends React.Component {
+  handleScrollDimmed(e) {
+    console.log('scrolled');
+  }
+
+  render() {
+    const { isShownPopup, dispatchHidePopup } = this.props;
+    return (
+      <Fragment>
+        {
+          isShownPopup && (
             <div
-              className={cx('background')}
-              onClick={hidePopup}
-            />
-            <div className={cx('children')}>
-              {renderChildren(props)}
+              className={cx('popup')}>
+              <div
+                className={cx('background')}
+                onClick={dispatchHidePopup}
+                onScroll={this.handleScrollDimmed}
+              />
+              <div className={cx('children')}>
+                {renderChildren(this.props)}
+              </div>
             </div>
-          </div>
-        )
-      }
-    </Fragment>
-  )
-};
+          )
+        }
+      </Fragment>
+    );
+  }
+}
 
 export default connect(
   function mapStateToProps({ global }) {
-    const { isShownPopup, popupType, renderModal, alertTitle, alertMessage } = global;
+    const { isShownPopup, popupType, popupProps } = global;
     return {
-      isShown: isShownPopup,
+      isShownPopup,
       popupType,
-      renderModal,
-      alertTitle,
-      alertMessage
+      popupProps
     };
   },
   function mapDispatchToProps(dispatch) {
     return {
-      hidePopup() {
+      dispatchHidePopup() {
         dispatch(popupActionCreator.hidePopup());
       }
     };
   }
-)(Dimmed)
+)(Popup)

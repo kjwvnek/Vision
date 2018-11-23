@@ -10,6 +10,7 @@ function* loginAsync() {
   let id, email, nickname, response;
   try {
     const auth = yield call(googleAuth);
+    console.log(auth);
     email = auth.user.email;
     
     response = yield call(getUserByEmail, email);

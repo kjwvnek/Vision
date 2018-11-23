@@ -1,0 +1,53 @@
+@import '../../../../style/color';
+
+.field-set {
+  .label {
+    display: block;
+    height: 23px;
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: middle;
+      color: $color-aqua-blue;
+    }
+    .text {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 20px;
+      vertical-align: middle;
+      color: $color-aqua-blue;
+    }
+    & + .field {
+      margin-top: 10px;
+    }
+  }
+  .field {
+    height: calc(100% - 23px);
+    padding: 0 8px;
+    border-radius: 2px;
+    background-color: #fff;
+    &:only-child {
+      height: 100%;
+    }
+    .text-field {
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 18px;
+      line-height: 34px;
+      resize: none;
+    }
+    .value {
+      height: 100%;
+      font-size: 18px;
+      line-height: 34px;
+      color: $color-grey-800;
+      &.default {
+        color: $color-grey-400;
+      }
+    }
+  }
+}
