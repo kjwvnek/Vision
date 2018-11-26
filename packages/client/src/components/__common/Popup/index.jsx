@@ -4,6 +4,7 @@ import { actionCreator as popupActionCreator } from '@actions/popup'
 import * as POPUP_TYPE from '@constants/POPUP_TYPE'
 import Alert from '@components/__common/Popup/Alert'
 import UserInfo from '@components/__common/Popup/UserInfo'
+import LottieAnimation from '@components/__utils/LottieAnimation'
 
 const cx = require('classnames/bind').bind(require('./popup.scss'));
 
@@ -14,14 +15,22 @@ const renderChildren = props => {
     case POPUP_TYPE.ALERT:
       return (
         <Alert
-          title={popupProps.alertTitle}
-          message={popupProps.alertMessage}
+          title={popupProps.title}
+          message={popupProps.message}
           onClickBtnOk={dispatchHidePopup}
+        />
+      );
+    case POPUP_TYPE.FETCHING:
+      return (
+        <LottieAnimation
+          name="fetching"
+          loop={true}
+          containerClassName={cx('fetching-animation-container')}
         />
       );
     case POPUP_TYPE.USER_INFO:
       return (
-        <UserInfo {...popupProps} />
+        <UserInfo user={popupProps.user} />
       );
     default:
       return null;
@@ -29,12 +38,9 @@ const renderChildren = props => {
 };
 
 class Popup extends React.Component {
-  handleScrollDimmed(e) {
-    console.log('scrolled');
-  }
-
   render() {
     const { isShownPopup, dispatchHidePopup } = this.props;
+
     return (
       <Fragment>
         {
@@ -44,7 +50,6 @@ class Popup extends React.Component {
               <div
                 className={cx('background')}
                 onClick={dispatchHidePopup}
-                onScroll={this.handleScrollDimmed}
               />
               <div className={cx('children')}>
                 {renderChildren(this.props)}
@@ -58,8 +63,8 @@ class Popup extends React.Component {
 }
 
 export default connect(
-  function mapStateToProps({ global }) {
-    const { isShownPopup, popupType, popupProps } = global;
+  function mapStateToProps({ popup }) {
+    const { isShownPopup, popupType, popupProps } = popup;
     return {
       isShownPopup,
       popupType,

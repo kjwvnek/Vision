@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
 
 app.use(function(err, req, res) {
   console.log(err);
-  res.status(err.status || 500).send(err.message);
+  res.status(err.status || 500).send('server error');
 });
 
 module.exports = app;

@@ -11,9 +11,9 @@ const UserSchema = new Schema({
     type: String,
     isRequired: true
   },
-  last_modified: {
-    type: Date,
-    default: Date.now
+  fields: {
+    type: Array,
+    default: []
   },
   mentees: {
     type: Array,
@@ -22,6 +22,22 @@ const UserSchema = new Schema({
   mentors: {
     type: Array,
     default: []
+  },
+  phone: {
+    type: String,
+    default: ''
+  },
+  summary: {
+    type: String,
+    default: ''
+  },
+  description: {
+    type: String,
+    default: ''
+  },
+  last_modified: {
+    type: Date,
+    default: Date.now
   }
 });
 

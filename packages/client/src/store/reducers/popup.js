@@ -1,13 +1,11 @@
 import { ACTION_TYPE as LOGIN_ACTION_TYPE } from '@actions/login'
 import { ACTION_TYPE as POPUP_ACTION_TYPE } from '@actions/popup'
-import * as POPUP_TYPE from '@constants/POPUP_TYPE'
+import * as POPUP_TYPES from '@constants/POPUP_TYPE'
 
 const initialState = {
-  fetching: false,
   isShownPopup: false,
   popupType: '',
-  alertTitle: '',
-  alertMessage: ''
+  popupProps: {}
 };
 
 function reducer(state = initialState, { type, description }) {
@@ -15,18 +13,17 @@ function reducer(state = initialState, { type, description }) {
     case LOGIN_ACTION_TYPE.LOGIN_REQUEST:
       return {
         ...state,
-        fetching: true
+        isShownPopup: true,
+        popupType: POPUP_TYPES.FETCHING
       };
     case LOGIN_ACTION_TYPE.LOGIN_SUCCESS:
       return {
         ...state,
-        fetching: false
+        isShownPopup: false
       };
     case POPUP_ACTION_TYPE.SHOW_POPUP:
-    case POPUP_ACTION_TYPE.SHOW_ALERT:
       return {
         ...state,
-        fetching: false,
         isShownPopup: true,
         popupType: description.popupType,
         popupProps: description.popupProps
@@ -34,9 +31,13 @@ function reducer(state = initialState, { type, description }) {
     case POPUP_ACTION_TYPE.HIDE_POPUP:
       return {
         ...state,
-        isShownPopup: false,
-        alertTitle: '',
-        alertMessage: ''
+        isShownPopup: false
+      };
+    case POPUP_ACTION_TYPE.SHOW_USER_INFO_POPUP_REQUEST:
+      return {
+        ...state,
+        isShownPopup: true,
+        popupType: POPUP_TYPES.FETCHING
       };
     default:
       return {

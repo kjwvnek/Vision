@@ -4864,7 +4864,6 @@ react-router@^4.3.1:
 react-spring@^6.1.9:
   version "6.1.9"
   resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-6.1.9.tgz#bf858aedb5bd954c83545c27731a9f05320a49fe"
-  integrity sha512-SLgijUY3XL2fWZrb1N/oVxnQaZloYtSm2Fy6VngC2xoJRKwXY0i0KH03CGXV5iBKV0GhST4oCI1XTy75V40K9A==
   dependencies:
     "@babel/runtime" "^7.0.0"
 

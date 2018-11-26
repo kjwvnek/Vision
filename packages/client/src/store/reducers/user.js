@@ -5,7 +5,7 @@ const initialState = {
   id: '',
   email: '',
   nickname: '',
-  myChannels: []
+  fields: []
 };
 
 function reducer(state = initialState, { type, description }) {
@@ -17,7 +17,7 @@ function reducer(state = initialState, { type, description }) {
         id: description.id,
         email: description.email,
         nickname: description.nickname,
-        myChannels: []
+        fields: description.fields
       };
     default:
       return {

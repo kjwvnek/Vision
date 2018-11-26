@@ -1,8 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { actionCreator as loginActionCreator, ACTION_TYPE as LOGIN_ACTION_TYPE } from '@actions/login';
 import { actionCreator as popupActionCreator } from '@actions/popup'
-import { getUserById, getUserByEmail } from '@api/get'
-import { postUser } from '@api/post'
+import { getUserById } from '@api/get'
+import { postUser ,login } from '@api/post'
 import { googleAuth } from '@services/firebase'
 import * as SESSION_KEY from '@constants/SESSION_KEY'
 
@@ -10,10 +10,9 @@ function* loginAsync() {
   let id, email, nickname, response;
   try {
     const auth = yield call(googleAuth);
-    console.log(auth);
     email = auth.user.email;
     
-    response = yield call(getUserByEmail, email);
+    response = yield call(login, email);
     if (response.status === 204) {
       response = yield call(postUser, email);
     }
@@ -32,16 +31,12 @@ function* loginAsync() {
 }
 
 function* autoLoginAsync({ description }) {
-  let email, nickname;
   let id = description.id;
 
   try {
-    const response = yield getUserById(id);
+    const user = yield call(getUserById, id);
 
-    email = response.email;
-    nickname = response.nickname;
-
-    yield put(loginActionCreator.loginSuccess(id, email, nickname))
+    yield put(loginActionCreator.loginSuccess(user.id, user.email, user.nickname, user.fields))
   } catch (e) {
     yield put(popupActionCreator.showAlert(
       '서버 에러!',

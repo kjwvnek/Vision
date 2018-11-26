@@ -10,13 +10,14 @@ const actionCreator = {
       type: ACTION_TYPE.LOGIN_REQUEST
     };
   },
-  loginSuccess(id, email, nickname) {
+  loginSuccess(id, email, nickname, fields) {
     return {
       type: ACTION_TYPE.LOGIN_SUCCESS,
       description: {
         id,
         email,
-        nickname
+        nickname,
+        fields
       }
     };
   },

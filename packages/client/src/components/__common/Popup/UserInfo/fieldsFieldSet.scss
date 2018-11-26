@@ -1,0 +1,110 @@
+@import '../../../../style/color';
+@import '../../../../style/mixin';
+
+.field-set {
+  .label {
+    display: block;
+    height: 23px;
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: top;
+      color: $color-aqua-blue;
+    }
+    .text {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 20px;
+      vertical-align: top;
+      color: $color-aqua-blue;
+    }
+  }
+  .field {
+    margin-top: 7px;
+    .fields-list {
+      margin: -3px;
+      .item {
+        display: inline-block;
+        box-sizing: border-box;
+        height: 40px;
+        padding: 3px;
+        vertical-align: top;
+      }
+      .empty {
+        height: 34px;
+        font-size: 15px;
+        line-height: 34px;
+        color: $color-grey-700;
+      }
+      .tag {
+        display: block;
+        box-sizing: border-box;
+        height: 34px;
+        padding: 0 13px;
+        border-radius: 3px;
+        background-color: $color-grey-600;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 34px;
+        color: $color-white;
+        text-align: center;
+        &:before {
+          content: '# '
+        }
+        &.can-delete {
+          position: relative;
+          padding-right: 30px;
+        }
+        .button-delete-field {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 30px;
+          height: 100%;
+          .icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            margin: auto;
+            color: $color-white;
+          }
+        }
+      }
+      .area-add-field {
+        position: relative;
+        height: 34px;
+        .button,
+        .text-field {
+          display: block;
+          box-sizing: border-box;
+          width: 100px;
+          height: 34px;
+          padding: 0 8px;
+          border-radius: 3px;
+          border: 2px solid;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 30px;
+          text-align: center;
+          color: $color-grey-900;
+        }
+        .button {
+          border-color: $color-grey-600;
+        }
+        .text-field {
+          border-color: $color-grey-300;
+          @include placeholder {
+            color: $color-grey-500;
+          }
+        }
+      }
+    }
+  }
+}

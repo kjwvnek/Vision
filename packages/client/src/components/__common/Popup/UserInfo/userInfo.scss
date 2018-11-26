@@ -3,10 +3,9 @@
 .user-info {
   box-sizing: border-box;
   width: 560px;
-  padding: 30px 30px 40px;
+  padding: 40px 30px;
   border-radius: 10px;
-  border: 4px solid $color-white;
-  background: url(/assets/images/background-paper.jpg) no-repeat 50% 50%/100% 100%;
+  background-color: #fff;
   .header {
     .image-frame {
       float: left;
@@ -54,13 +53,24 @@
       }
     }
   }
+  .field-set {
+    margin-top: 16px;
+    height: 67px;
+  }
+  .field-nickname {
+    height: 34px;
+    padding-right: 106px;
+    background-color: #fff;
+  }
   .field-summary {
     height: 68px;
     margin-top: 12px;
   }
-  .field-set {
-    height: 57px;
-    margin-top: 20px;
+  .field-description {
+    height: 125px;
+  }
+  .field-fields {
+    margin-top: 16px;
   }
   .button-edit {
     position: absolute;
@@ -74,6 +84,35 @@
       height: 34px;
       margin: 0 auto;
       color: #222;
+      transition: 0.5s color;
+    }
+    &.is-edit-mode .icon {
+      color: $color-aqua-blue;
+    }
+  }
+  .alert {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    .icon {
+      display: inline-block;
+      vertical-align: top;
+      color: $color-red-500;
+    }
+    .text {
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: $color-red-500;
     }
   }
 }

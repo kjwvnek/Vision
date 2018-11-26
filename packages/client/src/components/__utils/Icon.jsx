@@ -4,7 +4,13 @@ const icons = require.context('@assets/icons/', false, /\.*\.svg$/);
 icons.keys().forEach(icons);
 
 const Icon = props => {
-  const { name, width, height, className } = props;
+  const {
+    name,
+    width,
+    height,
+    className
+  } = props;
+
   return (
     <svg
       width={width}

@@ -5,14 +5,19 @@ const cx = require('classnames/bind').bind(require('./textFieldSet.scss'));
 
 const TextFieldSet = props => {
   const {
+    name,
     isEditMode,
     label,
     labelIcon,
-    value,
     defaultValue,
+    placeholder,
     line,
-    className
+    className,
+    maxLength,
+    onChange,
+    value
   } = props;
+  
   return (
     <div className={cx('field-set', className)}>
       {
@@ -32,21 +37,29 @@ const TextFieldSet = props => {
           </strong>
         )
       }
-      <div className={cx('field')}>
+      <div className={cx('field', { 'is-multi-line': line && line > 1 })}>
         {
           isEditMode ? (
             <Fragment>
               {
                 (line && line > 1) ? (
                   <textarea
+                    name={name}
                     className={cx('text-field')}
+                    placeholder={placeholder}
+                    maxLength={maxLength}
                     value={value}
+                    onChange={onChange}
                   />
                 ) : (
                   <input
                     type="text"
+                    name={name}
                     className={cx('text-field')}
+                    placeholder={placeholder}
+                    maxLength={maxLength}
                     value={value}
+                    onChange={onChange}
                   />
                 )
               }

@@ -18,7 +18,7 @@ const Alert = props => {
         </button>
       </div>
     </div>
-  )
+  );
 };
 
 export default Alert

@@ -19,7 +19,7 @@ class Home extends React.Component {
 
   handleClickButtonUserInfo() {
     const { user, dispatchShowUserInfoPopup } = this.props;
-    dispatchShowUserInfoPopup(user);
+    dispatchShowUserInfoPopup(user.id);
   }
 
   render() {
@@ -96,16 +96,12 @@ class Home extends React.Component {
 
 export default connect(
   function mapStateToProps({ user }) {
-    return {
-      user
-    };
+    return { user };
   },
   function mapDispatchToProps(dispatch) {
     return {
-      dispatchShowUserInfoPopup(userInfo) {
-        dispatch(popupActionCreator.showPopup(POPUP_TYPE.USER_INFO, {
-          ...userInfo
-        }))
+      dispatchShowUserInfoPopup(userId) {
+        dispatch(popupActionCreator.requestUserInfoPopup(userId));
       }
     };
   }

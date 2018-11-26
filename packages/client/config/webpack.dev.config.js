@@ -97,6 +97,7 @@ const config = {
       '@components': getAbsolutePath('./src/components/'),
       '@constants': getAbsolutePath('./src/constants/'),
       '@exec': getAbsolutePath('./src/exec/'),
+      '@models': getAbsolutePath('./src/models/'),
       '@services': getAbsolutePath('./src/services/'),
       '@style': getAbsolutePath('./src/style/'),
       '@routes': getAbsolutePath('./src/routes/'),

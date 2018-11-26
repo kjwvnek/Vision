@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import user from './user'
-import global from './global'
+import popup from './popup'
+import list from './list'
 
 export default combineReducers({
   user,
-  global
+  popup,
+  list
 })
