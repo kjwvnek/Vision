@@ -1,5 +1,5 @@
 import React, { createRef } from 'react'
-import Icon from '@components/__utils/Icon'
+import Icon from '@/components/__utils/Icon'
 
 const cx = require('classnames/bind').bind(require('./popTextField.scss'));
 

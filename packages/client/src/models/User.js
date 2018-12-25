@@ -1,4 +1,4 @@
-import { createModel } from '@utils/model'
+import { createModel } from '@/utils/model'
 
 const schema = {
   id: String,
@@ -9,7 +9,8 @@ const schema = {
   mentees: Array,
   mentors: Array,
   summary: String,
-  description: String
+  description: String,
+  userImageUrl: String,
 };
 
 const User = createModel(schema);

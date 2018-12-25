@@ -56,4 +56,10 @@
       color: $color-green-500;
     }
   }
+  &.default-card {
+    background-color: #eee;
+    .default-icon {
+      color: #fff;
+    }
+  }
 }

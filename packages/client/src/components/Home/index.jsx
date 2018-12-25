@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { actionCreator as popupActionCreator } from '@actions/popup'
-import * as POPUP_TYPE from '@constants/POPUP_TYPE'
+import { actionCreator as popupActionCreator } from '@/store/actions/popup'
+import { actionCreator as fetchActionCreator } from '@/store/actions/fetch'
 import Flicking from '@egjs/react-flicking'
-import Icon from '@components/__utils/Icon'
-import PopTextField from '@components/__common/PopTextField'
-import MentorCard from '@components/Home/MentorCard'
-import MenteeCard from '@components/Home/MenteeCard'
+import Icon from '@/components/__utils/Icon'
+import PopTextField from '@/components/__common/PopTextField'
+import MentorCard from '@/components/Home/MentorCard'
+import MenteeCard from '@/components/Home/MenteeCard'
 
 const cx = require('classnames/bind').bind(require('./home.scss'));
 
@@ -17,12 +17,44 @@ class Home extends React.Component {
     this.handleClickButtonUserInfo = this.handleClickButtonUserInfo.bind(this);
   }
 
+  componentDidMount() {
+    const { user, dispatchFetchMentorsAndMentees } = this.props;
+    dispatchFetchMentorsAndMentees(user.id);
+  }
+
   handleClickButtonUserInfo() {
     const { user, dispatchShowUserInfoPopup } = this.props;
     dispatchShowUserInfoPopup(user.id);
   }
 
   render() {
+    const { user } = this.props;
+    const { mentors, mentees } = user;
+
+    while (mentors.length < 3) {
+      mentors.push(null);
+    }
+
+    while(mentees.length < 3) {
+      mentees.push(null);
+    }
+
+    const mentorItems = mentors.map((mentor, index) => mentor ? (
+      <div className={cx('flick-panel')} key={index}>
+        <MentorCard
+          id={mentor.id}
+          userImageUrl={mentor.userImageUrl}
+          nickname={mentor.nickname}
+          summary={mentor.summary}
+          fields={mentor.fields}
+        />
+      </div>
+    ) : (
+      <div className={cx('flick-panel')} key={index}>
+        <MentorCard id={null} />  
+      </div>
+    ));
+
     return (
       <div className={cx('home')}>
         <h1 className={cx('app-title')}><strong className={cx('strong')}>V</strong>ision</h1>
@@ -63,9 +95,7 @@ class Home extends React.Component {
                 useTranslate={true}
                 className={cx('flick-wrap')}
               >
-                <div className={cx('flick-panel')}>
-                  <MentorCard />
-                </div>
+                {mentorItems}
               </Flicking>
             </div>
             <div className={cx('section')}>
@@ -102,6 +132,9 @@ export default connect(
     return {
       dispatchShowUserInfoPopup(userId) {
         dispatch(popupActionCreator.requestUserInfoPopup(userId));
+      },
+      dispatchFetchMentorsAndMentees(userId) {
+        dispatch(fetchActionCreator.fetchMentorsAndMenteesRequest(userId));
       }
     };
   }

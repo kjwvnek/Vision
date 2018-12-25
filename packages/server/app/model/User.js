@@ -15,14 +15,6 @@ const UserSchema = new Schema({
     type: Array,
     default: []
   },
-  mentees: {
-    type: Array,
-    default: []
-  },
-  mentors: {
-    type: Array,
-    default: []
-  },
   phone: {
     type: String,
     default: ''
@@ -31,7 +23,19 @@ const UserSchema = new Schema({
     type: String,
     default: ''
   },
+  mentees: {
+    type: Array,
+    default: []
+  },
+  mentors: {
+    type: Array,
+    default: []
+  },
   description: {
+    type: String,
+    default: ''
+  },
+  user_image_url: {
     type: String,
     default: ''
   },

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import * as SESSION_KEY from '@constants/SESSION_KEY'
-import AutoLogin from '@components/__utils/AutoLogin'
+import * as SESSION_KEY from '@/constants/SESSION_KEY'
+import AutoLogin from '@/components/__utils/AutoLogin'
 
 const UserAuth = props => {
   const { Component, user } = props;

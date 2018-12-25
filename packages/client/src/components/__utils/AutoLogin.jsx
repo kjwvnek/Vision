@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { actionCreator as loginActionCreator } from '@actions/login'
+import { actionCreator as loginActionCreator } from '@/store/actions/login'
 
 class AutoLogin extends React.Component {
   componentDidMount() {

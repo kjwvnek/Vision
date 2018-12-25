@@ -1,4 +1,4 @@
-import { ACTION_TYPE as FETCH_ACTION_TYPE } from '@actions/fetch'
+import { ACTION_TYPE as FETCH_ACTION_TYPE } from '@/store/actions/fetch'
 
 const initialState = {
   recommendedFields: []

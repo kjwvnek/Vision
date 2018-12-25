@@ -1,9 +1,9 @@
 import React, { createRef } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { actionCreator as loginActionCreator } from '@actions/login'
-import Icon from '@components/__utils/Icon'
-import LottieAnimation from '@components/__utils/LottieAnimation'
+import { actionCreator as loginActionCreator } from '@/store/actions/login'
+import Icon from '@/components/__utils/Icon'
+import LottieAnimation from '@/components/__utils/LottieAnimation'
 
 const cx = require('classnames/bind').bind(require('./login.scss'));
 

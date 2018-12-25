@@ -1,5 +1,5 @@
 import axios from 'axios'
-import UserModel from '@models/User'
+import UserModel from '@/models/User'
 
 const originURL = 'http://localhost:8000';
 

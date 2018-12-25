@@ -91,17 +91,8 @@ const config = {
   },
   resolve: {
     alias: {
-      '@actions': getAbsolutePath('./src/store/actions/'),
-      '@api': getAbsolutePath('./src/api/'),
-      '@assets': getAbsolutePath('./public/assets/'),
-      '@components': getAbsolutePath('./src/components/'),
-      '@constants': getAbsolutePath('./src/constants/'),
-      '@exec': getAbsolutePath('./src/exec/'),
-      '@models': getAbsolutePath('./src/models/'),
-      '@services': getAbsolutePath('./src/services/'),
-      '@style': getAbsolutePath('./src/style/'),
-      '@routes': getAbsolutePath('./src/routes/'),
-      '@utils': getAbsolutePath('./src/utils/')
+      '@': getAbsolutePath('./src'),
+      '~': getAbsolutePath('./public')
     },
     mainFiles: ['index'],
     extensions: ['*', '.js', '.jsx', '.css', 'scss']

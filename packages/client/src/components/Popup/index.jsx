@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { actionCreator as popupActionCreator } from '@actions/popup'
-import * as POPUP_TYPE from '@constants/POPUP_TYPE'
-import Alert from '@components/__common/Popup/Alert'
-import UserInfo from '@components/__common/Popup/UserInfo'
-import LottieAnimation from '@components/__utils/LottieAnimation'
+import { actionCreator as popupActionCreator } from '@/store/actions/popup'
+import * as POPUP_TYPE from '@/constants/POPUP_TYPE'
+import Alert from '@/components/Popup/Alert'
+import UserInfo from '@/components/Popup/UserInfo'
+import LottieAnimation from '@/components/__utils/LottieAnimation'
 
 const cx = require('classnames/bind').bind(require('./popup.scss'));
 

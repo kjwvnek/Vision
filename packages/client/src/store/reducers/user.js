@@ -1,11 +1,14 @@
-import { ACTION_TYPE as LOGIN_ACTION_TYPE } from '@actions/login'
+import { ACTION_TYPE as LOGIN_ACTION_TYPE } from '@/store/actions/login'
+import { ACTION_TYPE as FETCH_ACTION_TYPE } from '@/store/actions/fetch'
 
 const initialState = {
   authentication: false,
   id: '',
   email: '',
   nickname: '',
-  fields: []
+  fields: [],
+  mentors: [],
+  mentees: []
 };
 
 function reducer(state = initialState, { type, description }) {
@@ -18,6 +21,12 @@ function reducer(state = initialState, { type, description }) {
         email: description.email,
         nickname: description.nickname,
         fields: description.fields
+      };
+    case FETCH_ACTION_TYPE.FETCH_MENTORS_AND_MENTEES_SUCCESS:
+      return {
+        ...state,
+        mentors: description.mentors,
+        mentees: description.mentees
       };
     default:
       return {

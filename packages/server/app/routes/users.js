@@ -10,7 +10,18 @@ router.get('/:id', async (req, res, next) => {
     const data = await readUser(id);
     const status = data ? 200 : 204;
   
-    res.status(status).json(data);
+    res.status(status).json({
+      id: data.id,
+      email: data.email,
+      nickname: data.nickname,
+      phone: data.phone,
+      fields: data.fields,
+      summary: data.summary,
+      description: data.description,
+      userImageUrl: data.user_image_url,
+      mentees: data.mentees,
+      mentors: data.mentors
+    });
   } catch (e) {
     next(`[get] /users/:id\n${e.message}`);
   }
@@ -35,6 +46,7 @@ router.post('/', async (req, res, next) => {
       fields: data.fields,
       summary: data.summary,
       description: data.description,
+      userImageUrl: data.user_image_url,
       mentees: data.mentees,
       mentors: data.mentors
     });
@@ -58,7 +70,7 @@ router.post('/login', async (req, res, next) => {
     } else {
       res.status(204).json({
         message: 'check a email'
-      })
+      });
     }
   } catch (e) {
     next(`[post] /users/login\n${e.message}`);

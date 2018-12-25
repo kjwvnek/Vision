@@ -1,10 +1,10 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { actionCreator as loginActionCreator, ACTION_TYPE as LOGIN_ACTION_TYPE } from '@actions/login';
-import { actionCreator as popupActionCreator } from '@actions/popup'
-import { getUserById } from '@api/get'
-import { postUser ,login } from '@api/post'
-import { googleAuth } from '@services/firebase'
-import * as SESSION_KEY from '@constants/SESSION_KEY'
+import { actionCreator as loginActionCreator, ACTION_TYPE as LOGIN_ACTION_TYPE } from '@/store/actions/login';
+import { actionCreator as popupActionCreator } from '@/store/actions/popup'
+import { getUserById } from '@/api/get'
+import { postUser ,login } from '@/api/post'
+import { googleAuth } from '@/services/firebase'
+import * as SESSION_KEY from '@/constants/SESSION_KEY'
 
 function* loginAsync() {
   let id, email, nickname, response;

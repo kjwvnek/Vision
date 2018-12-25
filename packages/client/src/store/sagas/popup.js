@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { actionCreator as popupActionCreator, ACTION_TYPE as POPUP_ACTION_TYPE } from '@actions/popup'
-import { getUserById } from '@api/get'
+import { actionCreator as popupActionCreator, ACTION_TYPE as POPUP_ACTION_TYPE } from '@/store/actions/popup'
+import { getUserById } from '@/api/get'
 
 function* showUserInfoPopupAsync({ description }) {
   const userId = description.userId;

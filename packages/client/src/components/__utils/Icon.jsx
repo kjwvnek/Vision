@@ -1,6 +1,6 @@
 import React from 'react'
 
-const icons = require.context('@assets/icons/', false, /\.*\.svg$/);
+const icons = require.context('~/assets/icons/', false, /\.*\.svg$/);
 icons.keys().forEach(icons);
 
 const Icon = props => {

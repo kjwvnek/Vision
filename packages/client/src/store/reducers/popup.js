@@ -1,6 +1,6 @@
-import { ACTION_TYPE as LOGIN_ACTION_TYPE } from '@actions/login'
-import { ACTION_TYPE as POPUP_ACTION_TYPE } from '@actions/popup'
-import * as POPUP_TYPES from '@constants/POPUP_TYPE'
+import { ACTION_TYPE as LOGIN_ACTION_TYPE } from '@/store/actions/login'
+import { ACTION_TYPE as POPUP_ACTION_TYPE } from '@/store/actions/popup'
+import * as POPUP_TYPES from '@/constants/POPUP_TYPE'
 
 const initialState = {
   isShownPopup: false,

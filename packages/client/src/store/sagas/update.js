@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { ACTION_TYPE as USER_ACTION_TYPE } from '@actions/update'
-import { putUserInfo } from '@api/put'
-import {actionCreator as popupActionCreator} from "@actions/popup";
+import { ACTION_TYPE as USER_ACTION_TYPE } from '@/store/actions/update'
+import { putUserInfo } from '@/api/put'
+import {actionCreator as popupActionCreator} from "@/store/actions/popup";
 
 function* updateUserInfoAsync({ description }) {
   try {

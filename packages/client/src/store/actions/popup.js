@@ -1,4 +1,4 @@
-import * as POPUP_TYPE from '@constants/POPUP_TYPE'
+import * as POPUP_TYPE from '@/constants/POPUP_TYPE'
 
 const ACTION_TYPE = {
   SHOW_POPUP: 'SHOW_POPUP',

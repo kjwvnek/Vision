@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { actionCreator as updateActionCreator } from '@actions/update'
-import Icon from '@components/__utils/Icon'
-import TextFieldSet from '@components/__common/Popup/UserInfo/TextFieldSet'
-import FieldsFieldSet from '@components/__common/Popup/UserInfo/FieldsFieldSet'
+import { actionCreator as updateActionCreator } from '@/store/actions/update'
+import Icon from '@/components/__utils/Icon'
+import TextFieldSet from '@/components/Popup/UserInfo/TextFieldSet'
+import FieldsFieldSet from '@/components/Popup/UserInfo/FieldsFieldSet'
 import { Transition } from 'react-spring'
-import { validateLength, validatePhoneNumber, validateEmail, validateField } from '@utils/validate';
+import { validateLength, validatePhoneNumber, validateEmail, validateField } from '@/utils/validate';
 
 const cx = require('classnames/bind').bind(require('./userInfo.scss'));
 
@@ -53,7 +53,7 @@ class UserInfo extends React.Component {
     } = this.state;
     
     const isValid = validateLength(nickname, 1, 12)
-      && validateLength(summary, 0, 35)
+      && validateLength(summary, 0, 80)
       && validateLength(description, 0, 300)
       && validatePhoneNumber(phone)
       && validateEmail(email);
@@ -186,7 +186,7 @@ class UserInfo extends React.Component {
               defaultValue="summary."
               placeholder="within 35 characters"
               line={2}
-              maxLength={35}
+              maxLength={80}
               value={summary}
               onChange={this.handleChangeTextField}
             />
